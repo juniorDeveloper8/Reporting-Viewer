@@ -29,29 +29,39 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.clientDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetReporting = new Deber.DataSet.DataSetReporting();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.btn_buscar = new System.Windows.Forms.Button();
             this.btn_report = new System.Windows.Forms.Button();
             this.txt_buscarDni = new System.Windows.Forms.TextBox();
             this.btn_salir = new System.Windows.Forms.Button();
-            this.dataSetReporting = new Deber.DataSet.DataSetReporting();
-            this.clientDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clientDataTableAdapter = new Deber.DataSet.DataSetReportingTableAdapters.ClientDataTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetReporting)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetReporting)).BeginInit();
             this.SuspendLayout();
+            // 
+            // clientDataBindingSource
+            // 
+            this.clientDataBindingSource.DataMember = "ClientData";
+            this.clientDataBindingSource.DataSource = this.dataSetReporting;
+            // 
+            // dataSetReporting
+            // 
+            this.dataSetReporting.DataSetName = "DataSetReporting";
+            this.dataSetReporting.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
-            reportDataSource3.Name = "DataSetClient";
-            reportDataSource3.Value = this.clientDataBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
+            reportDataSource1.Name = "DataSetClient";
+            reportDataSource1.Value = this.clientDataBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Deber.ClientReporting.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(12, 64);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(645, 254);
+            this.reportViewer1.Size = new System.Drawing.Size(692, 254);
             this.reportViewer1.TabIndex = 0;
             // 
             // btn_buscar
@@ -91,16 +101,6 @@
             this.btn_salir.UseVisualStyleBackColor = true;
             this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
-            // dataSetReporting
-            // 
-            this.dataSetReporting.DataSetName = "DataSetReporting";
-            this.dataSetReporting.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // clientDataBindingSource
-            // 
-            this.clientDataBindingSource.DataMember = "ClientData";
-            this.clientDataBindingSource.DataSource = this.dataSetReporting;
-            // 
             // clientDataTableAdapter
             // 
             this.clientDataTableAdapter.ClearBeforeFill = true;
@@ -109,7 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(673, 374);
+            this.ClientSize = new System.Drawing.Size(718, 374);
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.txt_buscarDni);
             this.Controls.Add(this.btn_report);
@@ -118,8 +118,8 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetReporting)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetReporting)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
